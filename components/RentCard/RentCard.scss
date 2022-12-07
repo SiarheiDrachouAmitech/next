@@ -1,0 +1,49 @@
+.rent-card-list__item {
+    padding: 15px 20px;
+    box-shadow: 0px 0px 23px rgba(0, 0, 0, 0.25);
+
+    figure {
+        
+        img {
+            max-width: 100%;
+            width: 341px;
+            height: 211px;
+        }
+
+        figcaption {
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 28px;
+
+            @media(max-width: 968px) {
+                height: 56px;
+            }
+        }
+    }
+
+    .card-container {
+        height: 181px;
+    }
+
+    .card-type {
+        font-size: 16px;
+        line-height: 22px;
+        color: #6F6F6F;
+        margin: 2px 0 8px;
+        height: 22px;
+    }
+
+    .card-description {
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 14px;
+    }
+}

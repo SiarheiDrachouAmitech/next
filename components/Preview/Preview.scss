@@ -1,0 +1,65 @@
+.preview {
+    background-image: url("https://yaramark.by/img/preview-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 132px 0 176px;
+
+    @media(max-width: 968px) {
+        padding: 65px 0;
+    }
+
+    @media(max-width: 640px) {
+        padding: 30px 0;
+    }
+
+    &-container {
+        max-width: 1280px;
+        margin: 0 auto;
+
+        @media(max-width: 1340px) {
+            margin: 0 50px;
+        }
+        
+        @media(max-width: 640px) {
+            margin: 0 30px;
+        }
+
+        a {
+            color: black;
+        }
+    }
+
+    &__heading {
+        font-size: 50px;
+        line-height: 70px;
+        color: white;
+        
+        @media(max-width: 640px) {
+            font-size: 30px;
+            line-height: 42px;
+        }
+
+        span {
+            color: #ffcb00;
+            display: block;
+        }
+    }
+
+    &__text {
+        margin: 40px 0 176px;
+        font-size: 24px;
+        line-height: 34px;
+        color: white;
+
+        @media(max-width: 640px) {
+            font-size: 16px;
+            line-height: 24px;
+            margin: 40px 0 338px;
+        }
+
+        span {
+            color: #ffcb00;
+        }
+    }
+}

@@ -1,0 +1,166 @@
+.header {
+
+        @media(max-width: 1340px) {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        &-navigation {
+            transition: 0.3s linear;
+
+            @media(min-width: 1340px) {
+                background-color: #ffcb00;
+                transition: 0.5s linear;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+            }
+
+            @media(max-width: 1340px) {
+                opacity: 0;
+                position: fixed;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                visibility: hidden;
+            }
+
+            &--mobile {
+                opacity: 1;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                width: 100%;
+                padding: 0;
+                visibility: visible;
+                z-index: 1000;
+
+                svg {
+                    display: inline-block;
+                }
+            }
+
+            &__list {
+                position: relative;
+                max-width: 1280px;
+                margin: 0 auto;
+                transition: 0.3s linear;
+
+                @media(min-width: 1340px) {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                @media(max-width: 1340px) {
+                    flex-direction: column;
+                    max-width: 320px;
+                    background-color: white;
+                    height: 100%;
+                    width: 100%;
+                    right: -100%;
+                    margin: 0 0 0 auto;
+                    padding: 90px 30px;
+                }
+
+                &--active {
+                    @media(max-width: 1340px) {
+                        right: 0;
+                    }
+                }
+
+                &-item {
+                    padding: 20px 0;
+
+                    @media(max-width: 1340px) {
+                        flex-direction: column;
+                        padding: 10px 0;
+                    }
+
+                    &__link {
+                        font-weight: 400;
+                        font-size: 22px;
+                        line-height: 26px;
+                        color: #1B1918;
+                        cursor: pointer;
+
+                        @media(max-width: 1024px) {
+                            font-size: 18px;
+                        }
+
+                        &--active {
+                            color: #ffcb00;
+
+                            svg {
+                                transform: rotate(180deg);
+                            }
+
+                            path {
+                                stroke: #ffcb00 !important;
+                            }
+                        }
+                    }
+                }
+
+                .header-submenu:hover .header-navigation-submenu {
+                    @media(min-width: 1340px) {
+                        display: block;
+                    }
+                }
+            }
+
+            &-submenu {
+
+                @media(min-width: 1340px) {
+                    position: absolute;
+                    top: 100%;
+                    background-color: #fff;
+                    width: 100%;
+                    left: 0;
+                    padding: 38px 0 52px;
+                    display: none;
+                    box-shadow: 0px 0px 23px rgba(0, 0, 0, 0.1);
+                }
+
+                @media(max-width: 1340px) {
+                    display: none;
+                }
+
+                &--mobile {
+                    display: grid;
+                }
+
+                &-list {
+                    font-size: 24px;
+                    line-height: 34px;
+
+                    @media(min-width: 1340px) {
+                        max-width: 930px;
+                        margin: 0 auto;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr );
+                        grid-template-rows: repeat(3, 1fr );
+                        grid-gap: 35px 57px;
+                    }
+
+                    @media(max-width: 1340px) {
+                        padding: 30px 9px;
+                        display: grid;
+                        grid-auto-flow: row;
+                        grid-gap: 10px;
+                    }
+
+                    @media(max-width: 1024px) {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    .home-link {
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 26px;
+        color: #1B1918;
+        cursor: pointer;
+    }

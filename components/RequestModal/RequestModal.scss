@@ -1,0 +1,77 @@
+.request-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+
+    &-container {
+        position: relative;
+        max-width: 754px;
+        width: 95%;
+        margin: 0 auto;
+        padding: 40px 88px;
+        background-color: #fff;
+
+        @media(max-width: 768px) {
+            padding: 20px;
+        }
+
+        &__heading {
+            font-size: 30px;
+            line-height: 43px;
+        }
+
+        &__text {
+            font-size: 22px;
+            line-height: 31px;
+            margin: 40px 0;
+
+            a {
+                color: black;
+                font-weight: 600;
+            }
+        }
+
+        .span {
+            margin: 0 0 30px;
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            line-height: 23px;
+        }
+
+        &__button {
+            color: white;
+            font-size: 16px;
+            line-height: 23px;
+            padding: 10px 50px;
+            display: flex;
+            align-items: center;
+            margin: 15px auto;
+            max-width: 312px;
+
+            svg {
+                margin-right: 15px;
+            }
+        }
+
+        .phone {
+            background: linear-gradient(180deg, #9E9999 0%, #6A6969 100%);
+        }
+        .watsapp {
+            background: linear-gradient(180deg, #49C858 0%, #21B032 100%);
+        }
+        .viber {
+            background: linear-gradient(180deg, #684EB2 0%, #533F8B 100%);
+        }
+        .telegramm {
+            background: linear-gradient(180deg, #2AABEE 0%, #229ED9 100%);
+        }
+    }
+}

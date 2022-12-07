@@ -1,0 +1,193 @@
+.object-description {
+    max-width: 1280px;
+    margin: 40px auto 130px;
+    display: grid;
+    grid-template-areas: 'info carousel'
+                         'list carousel';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 80px 32px;
+
+    @media(max-width: 1340px) {
+        margin: 40px 50px 130px;
+    }
+
+    @media(max-width: 1280px) {
+        grid-template-areas: 'info'
+                             'carousel'
+                             'list';
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    @media(max-width: 968px) {
+        margin: 65px 50px;
+    }
+
+    ol {
+        list-style-type: disc;
+    }
+
+    &--top {
+        grid-area: info;
+    }
+
+    .carousel {
+        grid-area: carousel;
+
+        @media(min-width: 1240px) {
+            margin-top: 60px;
+        }
+    }
+
+    &__link-back {
+        font-size: 20px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        @media(max-width: 1280px) {
+            justify-content: center;
+        }
+        
+        svg {
+            margin-right: 15px;
+        }
+    }
+
+    &__heading {
+        font-size: 20px;
+        line-height: 28px;
+        margin: 27px 0 20px;
+
+        @media(max-width: 1280px) {
+            text-align: center;
+        }
+    }
+
+    &-list {
+        display: grid;
+        grid-template-areas: 'location location'
+                             'year sqrt';
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto 1fr;
+        grid-gap: 30px;
+        justify-content: space-between;
+        grid-area: list;
+
+        @media(max-width: 640px) {
+            grid-template-columns: repeat(2, 120px);
+        }
+        
+        &__item {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            grid-auto-flow: row;
+            grid-gap: 10px;
+            text-align: center;
+
+            @media(min-width: 1280px) {
+                justify-content: space-between;
+            }
+
+            @media(max-width: 1280px) {
+                justify-content: center;
+            }
+
+            span {
+                display: block;
+                min-width: 200px;
+            }
+
+            svg {
+                margin: 0 auto;
+            }
+        }
+
+        .location {
+            grid-area: location;
+
+            @media(min-width: 1280px) {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                grid-gap: 15px;
+                text-align: left;
+            }
+
+            @media(max-width: 1280px) {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .year {
+            grid-area: year;
+        }
+
+        .sqrt {
+            grid-area: sqrt;
+        }
+    }
+}
+
+.carousel {
+    width: 100%;
+
+    &--big {
+        position: relative;
+        margin-bottom: 10px;
+
+        img {
+            width: 100%;
+            height: 480px;
+
+            @media(max-width: 1240px) {
+                height: 600px;
+            }
+            
+            @media(max-width: 768px) {
+                height: 400px;
+            }
+
+            @media(max-width: 500px) {
+                height: 267px;
+            }
+        }
+    }
+
+    &-list {
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(4, 1fr );
+        grid-gap: 10px 20px;
+
+        &__item {
+
+            &--small {
+
+                img {
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100px;
+
+                    @media(max-width: 1240px) {
+                        height: 150px;
+                    }
+                    
+                    @media(max-width: 768px) {
+                        height: 100px;
+                    }
+
+                    @media(max-width: 500px) {
+                        height: 50px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.select-image {
+    transform: scale(1.1);
+}

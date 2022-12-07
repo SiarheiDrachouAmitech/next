@@ -1,0 +1,11 @@
+.number3-svg {
+    @media(max-width: 1340px) {
+        margin-right: 75px;
+    }
+
+    @media(max-width: 968px) {
+        width: 57px;
+        height: 103px;
+        margin-right: 0;
+    }
+}

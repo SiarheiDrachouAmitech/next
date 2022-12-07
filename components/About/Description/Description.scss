@@ -1,0 +1,33 @@
+.description {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    @media(min-width: 1280px) {
+        background-image: url("https://yaramark.by/img/about-bg.png");
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &__heading {
+        margin-bottom: 60px;
+
+        @media(min-width: 640px) {
+            margin-bottom: 40px;
+        }
+    }
+
+    &-container {
+
+        &__text {
+            margin: 10px 0;
+            font-size: 24px;
+            line-height: 34px;
+            
+            @media(max-width: 768px) {
+                font-size: 16px;
+                line-height: 23px;
+            }
+        }
+    }
+}
