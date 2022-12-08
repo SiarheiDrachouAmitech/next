@@ -6,18 +6,12 @@ import Navigation from "../../components/Navigation/Navigation";
 import Router from "../../node_modules/next/router";
 import ObjectPage from "../../views/objectPage";
 import { ObjectDescriptionModel } from "../../models/models";
+import useIsMobile from "../../hooks/useIsMobile";
 
 export default function Object(): JSX.Element {
-  let [isMobile, setIsMobile] = useState(false);
   const path = Router?.router?.state?.query?.object;
   
-  const getIsMobile = (value: boolean) => {
-    setIsMobile(value);
-  };
-
-  const onCloseMobileMenu = useCallback(() => {
-    setIsMobile(false);
-  }, [setIsMobile]);
+  const { isMobile, getIsMobile, onCloseMobileMenu } = useIsMobile();
 
   const vileyka: ObjectDescriptionModel = useMemo(() => {
     return {

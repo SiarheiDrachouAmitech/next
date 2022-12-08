@@ -5,6 +5,7 @@ import ViberLogo from "../../assets/svg/ViberLogo";
 import TelegramLogo from "../../assets/svg/TelegramLogo";
 import { useCallback, useEffect, useState } from "react";
 import Link from "../../node_modules/next/link";
+import classes from './RequestModal.module.css';
 
 declare global {
     interface Window { opera: any; }
@@ -35,35 +36,35 @@ export default function RequestModal(props: {onClose: Function}): JSX.Element {
     
 
     return (
-    <section className="request-modal" onClick={() => onClose}>
-        <div className="request-modal-container">
+    <section className={classes.requestModal} onClick={() => onClose}>
+        <div className={classes.requestModalContainer}>
             <Close onClose={() => onClose}/>
             
-            <h3 className="request-modal-container__heading">Аренда техники</h3>
+            <h3 className={classes.requestModalContainerHeading}>Аренда техники</h3>
 
-            <p className="request-modal-container__text">
+            <p className={classes.requestModalContainerText}>
                 Связаться с главным механиком <strong>Алексеем</strong> вы можете по номеру телефона:  <a href="tel:+375296888619">+375(29)688-86-19</a> 
             </p>
 
-            <span className="request-modal-container__text span">или через</span>
+            <span className={`${classes.requestModalContainerText} ${classes.span}`}>или через</span>
 
-            <Link href="tel:375296888619" className="request-modal-container__button phone">
+            <Link href="tel:375296888619" className={`${classes.requestModalContainerButton} ${classes.phone}`}>
                 <PhoneLogo />
 
                 Перейти в WhatsApp 
             </Link>
 
-            <Link href="https://wa.me/375296888619" className="request-modal-container__button watsapp">
+            <Link href="https://wa.me/375296888619" className={`${classes.requestModalContainerButton} ${classes.watsapp}`}>
                 <WhatsappLogo />
 
                 Перейти в WhatsApp 
             </Link>
-            <Link href={viberLink} className="request-modal-container__button viber">
+            <Link href={viberLink} className={`${classes.requestModalContainerButton} ${classes.viber}`}>
                 <ViberLogo />
 
                 Перейти в Viber
             </Link>
-            <Link href="https://telegram.im/375296888619" className="request-modal-container__button telegramm">
+            <Link href="https://telegram.im/375296888619" className={`${classes.requestModalContainerButton} ${classes.telegramm}`}>
                 <TelegramLogo />
 
                 Перейти в Телеграм

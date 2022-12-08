@@ -1,12 +1,14 @@
+import classes from './Description.module.css';
+
 export default function Description(): JSX.Element {
     return (
-    <article className="description">
-        <h2 className="description__heading">
+    <article className={classes.description}>
+        <h2 className={classes.descriptionHeading}>
             О нас
         </h2>
 
-        <div className="description-container">
-            <p className="description-container__text">
+        <div className={classes.descriptionContainer}>
+            <p className={classes.descriptionContainerText}>
                 Строительная компания ООО «ЯраМарк» основана
                 <br />
                 командой опытных специалистов - профессионалов своего
@@ -14,7 +16,7 @@ export default function Description(): JSX.Element {
                 дела. 
             </p>
 
-            <p className="description-container__text">
+            <p className={classes.descriptionContainerText}>
                 Стратегия строительной компании ООО «ЯраМарк» — это
                 <br />
                 постоянное развитие, повышение конкурентоспособности
@@ -24,7 +26,7 @@ export default function Description(): JSX.Element {
                 строительном сегменте рынка. 
             </p>
 
-            <p className="description-container__text">
+            <p className={classes.descriptionContainerText}>
                 Благодаря высокому профессиональному уровню управления
                 <br />
                 строительством, применению современных строительных

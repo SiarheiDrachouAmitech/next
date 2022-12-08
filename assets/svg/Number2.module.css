@@ -1,0 +1,13 @@
+@media (max-width: 1340px) {
+  .number2Svg {
+    margin-right: 75px;
+  }
+}
+
+@media (max-width: 968px) {
+  .number2Svg {
+    width: 57px;
+    height: 103px;
+    margin-right: 0;
+  }
+}

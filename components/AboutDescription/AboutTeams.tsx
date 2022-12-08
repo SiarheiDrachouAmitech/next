@@ -1,4 +1,5 @@
 import { AboutDescriptionModel } from "../../models/models";
+import classes from './AboutTeams.module.css';
 
 export default function AboutTeams(props: AboutDescriptionModel): JSX.Element {
     const {
@@ -6,10 +7,10 @@ export default function AboutTeams(props: AboutDescriptionModel): JSX.Element {
     } = props;
 
     return (
-        <div className="about-teams">
-        <h5 className="h5" >{heading}</h5>
+        <div className={classes.aboutTeams}>
+        <h5 className={classes.h5}>{heading}</h5>
 
-        {array && <ol className="ol" >
+        {array && <ol className={classes.ol}>
             {array.map((list: string, index: number) => {
                 return (
                     <li key={index}>{list}</li>

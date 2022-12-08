@@ -3,9 +3,12 @@ import SubmenuIcon from "../../assets/svg/SubmenuIcon";
 import PreviewModal from "../../components/PreviewModal/PreviewModal";
 import { ObjectCarouselModel } from "../../models/models";
 import Head from "../../node_modules/next/dist/shared/lib/head";
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import Navigation from '../../components/Navigation/Navigation';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import Navigation from "../../components/Navigation/Navigation";
+import useIsMobile from "../../hooks/useIsMobile";
+
+import classes from "./TechnicalCompetencePage.module.css";
 
 export default function TechnicalCompetence(): JSX.Element {
   const certificates = useMemo(() => {
@@ -199,34 +202,25 @@ export default function TechnicalCompetence(): JSX.Element {
   const [isEvidences, setIsEvidences] = useState(false);
   const [isReviews, setIsReviews] = useState(false);
   let [isOpenPreview, setIsOpenPreview] = useState(false);
-  let [selectSrc, setSelectSrc] = useState('');
-  let [selectWEBPSrc, setSelectWEBPSrc] = useState('');
-  let [selectAlt, setSelectAlt] = useState('');
+  let [selectSrc, setSelectSrc] = useState("");
+  let [selectWEBPSrc, setSelectWEBPSrc] = useState("");
+  let [selectAlt, setSelectAlt] = useState("");
 
   const onClose = useCallback(() => {
     setIsOpenPreview(false);
-    setSelectSrc('');
-    setSelectWEBPSrc('');
-    setSelectAlt('');
+    setSelectSrc("");
+    setSelectWEBPSrc("");
+    setSelectAlt("");
   }, []);
 
   const openPreview = useCallback((preview: ObjectCarouselModel) => {
     setSelectSrc(preview.src);
-    setSelectWEBPSrc(preview.WEBPsrc || '');
+    setSelectWEBPSrc(preview.WEBPsrc || "");
     setSelectAlt(preview.alt);
-    setIsOpenPreview(true)
+    setIsOpenPreview(true);
   }, []);
 
-
-  let [isMobile, setIsMobile] = useState(false);
-
-  const getIsMobile = (value: boolean) => {
-      setIsMobile(value);
-  }
-
-  const onCloseMobileMenu = useCallback(() => {
-    setIsMobile(false);
-}, [setIsMobile]);
+  const { isMobile, getIsMobile, onCloseMobileMenu } = useIsMobile();
 
   return (
     <>
@@ -236,115 +230,138 @@ export default function TechnicalCompetence(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-<Header isMobile={isMobile} getIsMobile={getIsMobile} />
+      <Header isMobile={isMobile} getIsMobile={getIsMobile} />
 
-  <Navigation isMobile={isMobile} onClose={onCloseMobileMenu} />
-      {isOpenPreview && <PreviewModal onClose={onClose} previewSrc={selectSrc} previewWEBPSrc={selectWEBPSrc} previewAlt={selectAlt} />}
+      <Navigation isMobile={isMobile} onClose={onCloseMobileMenu} />
+      {isOpenPreview && (
+        <PreviewModal
+          onClose={onClose}
+          previewSrc={selectSrc}
+          previewWEBPSrc={selectWEBPSrc}
+          previewAlt={selectAlt}
+        />
+      )}
       <main className="main">
-        <section className="technical-competence">
-          <div className="technical-competence-container">
-            <h3 className="technical-competence-container__heading" onClick={() => setIsCertificates(true)}>
+        <section className={classes.technicalCompetence}>
+          <div className={classes.technicalCompetenceContainer}>
+            <h3
+              className={classes.technicalCompetenceContainerHeading}
+              onClick={() => setIsCertificates(true)}
+            >
               Сертификаты
               <SubmenuIcon />
             </h3>
 
-            {isCertificates && <ul className="technical-competence-container-list">
-              {certificates.map((image) => {
-                return (
-                  <li
-                    className="technical-competence-container-list__item"
-                    key={image.src}
-                    onClick={() => openPreview(image)}
-                  >
-                    <picture>
-                      <source srcSet={image.WEBPsrc} type="image/webp" />
-                      <img src={image.src} alt={image.alt} />
-                    </picture>
-                  </li>
-                );
-              })}
-            </ul>}
+            {isCertificates && (
+              <ul className={classes.technicalCompetenceContainerList}>
+                {certificates.map((image) => {
+                  return (
+                    <li
+                      className={classes.technicalCompetenceContainerListItem}
+                      key={image.src}
+                      onClick={() => openPreview(image)}
+                    >
+                      <picture>
+                        <source srcSet={image.WEBPsrc} type="image/webp" />
+                        <img src={image.src} alt={image.alt} />
+                      </picture>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
 
-          <div className="technical-competence-container">
-            <h3 className="technical-competence-container__heading" onClick={() => setIsAttestates(true)}>
+          <div className={classes.technicalCompetenceContainer}>
+            <h3
+              className={classes.technicalCompetenceContainerHeading}
+              onClick={() => setIsAttestates(true)}
+            >
               Аттестаты
               <SubmenuIcon />
             </h3>
 
-            {isAttestates && <ul
-              className="technical-competence-container-list" 
-            >
-              {attestates.map((image) => {
-                return (
-                  <li
-                    className="technical-competence-container-list__item"
-                    key={image.src}
-                    onClick={() => openPreview(image)}
-                  >
-                    <picture>
-                      <source srcSet={image.WEBPsrc} type="image/webp" />
-                      <img src={image.src} alt={image.alt} />
-                    </picture>
-                  </li>
-                );
-              })}
-            </ul>}
+            {isAttestates && (
+              <ul className={classes.technicalCompetenceContainerList}>
+                {attestates.map((image) => {
+                  return (
+                    <li
+                      className={classes.technicalCompetenceContainerListItem}
+                      key={image.src}
+                      onClick={() => openPreview(image)}
+                    >
+                      <picture>
+                        <source srcSet={image.WEBPsrc} type="image/webp" />
+                        <img src={image.src} alt={image.alt} />
+                      </picture>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
 
-          <div className="technical-competence-container">
-            <h3 className="technical-competence-container__heading" onClick={() => setIsEvidences(true)}>
+          <div className={classes.technicalCompetenceContainer}>
+            <h3
+              className={classes.technicalCompetenceContainerHeading}
+              onClick={() => setIsEvidences(true)}
+            >
               Свидетельства
               <SubmenuIcon />
             </h3>
 
-            {isEvidences && <ul
-              className="technical-competence-container-list" 
-            >
-              {evidences.map((image) => {
-                return (
-                  <li
-                    className="technical-competence-container-list__item"
-                    key={image.src}
-                    onClick={() => openPreview(image)}
-                  >
-                    <picture>
-                      <source srcSet={image.WEBPsrc} type="image/webp" />
-                      <img src={image.src} alt={image.alt} />
-                    </picture>
-                  </li>
-                );
-              })}
-            </ul>}
+            {isEvidences && (
+              <ul className={classes.technicalCompetenceContainerList}>
+                {evidences.map((image) => {
+                  return (
+                    <li
+                      className={classes.technicalCompetenceContainerListItem}
+                      key={image.src}
+                      onClick={() => openPreview(image)}
+                    >
+                      <picture>
+                        <source srcSet={image.WEBPsrc} type="image/webp" />
+                        <img src={image.src} alt={image.alt} />
+                      </picture>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
 
-          <div className="technical-competence-container">
-            <h3 className="technical-competence-container__heading" onClick={() => setIsReviews(true)}>
+          <div className={classes.technicalCompetenceContainer}>
+            <h3
+              className={classes.technicalCompetenceContainerHeading}
+              onClick={() => setIsReviews(true)}
+            >
               Отзывы
               <SubmenuIcon />
             </h3>
 
-            {isReviews && <ul className="technical-competence-container-list" >
-              {reviews.map((image) => {
-                return (
-                  <li
-                    className="technical-competence-container-list__item"
-                    key={image.src}
-                    onClick={() => openPreview(image)}
-                  >
-                    <picture>
-                      <source srcSet={image.WEBPsrc} type="image/webp" />
-                      <img src={image.src} alt={image.alt} />
-                    </picture>
-                  </li>
-                );
-              })}
-            </ul>}
+            {isReviews && (
+              <ul className={classes.technicalCompetenceContainerList}>
+                {reviews.map((image) => {
+                  return (
+                    <li
+                      className={classes.technicalCompetenceContainerListItem}
+                      key={image.src}
+                      onClick={() => openPreview(image)}
+                    >
+                      <picture>
+                        <source srcSet={image.WEBPsrc} type="image/webp" />
+                        <img src={image.src} alt={image.alt} />
+                      </picture>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         </section>
       </main>
 
-<Footer />
+      <Footer />
     </>
   );
 }

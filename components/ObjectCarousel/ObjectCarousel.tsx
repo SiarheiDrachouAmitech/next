@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import ArrowLeft from "../../assets/svg/ArrowLeft";
 import ArrowRight from "../../assets/svg/ArrowRight";
 import { ObjectCarouselModel } from "../../models/models";
+import classes from './ObjectCarousel.module.css';
 
 export default function ObjectCarousel(props: { images: ObjectCarouselModel[]}): JSX.Element {
     const { images } = props;
@@ -39,8 +40,8 @@ export default function ObjectCarousel(props: { images: ObjectCarouselModel[]}):
     }, [images, selectIndex])
     
     return (
-    <section className="carousel">
-        <div className="carousel--big">
+    <section className={classes.carousel}>
+        <div className={classes.carouselBig}>
             <ArrowLeft selectImage={selectImage} />
 
             <picture>
@@ -50,9 +51,9 @@ export default function ObjectCarousel(props: { images: ObjectCarouselModel[]}):
 
             <ArrowRight selectImage={selectImage} />
         </div>
-        <ul className="carousel-list">
+        <ul className={classes.carouselList}>
             {images.map((img: ObjectCarouselModel, index: number) => {
-                return (<li className="carousel-list__item carousel-list__item--small" key={img.id} onClick={() => setSelectIndex(index)}>
+                return (<li className={`${classes.carouselListItem} ${classes.carouselListItemSmall}`} key={img.id} onClick={() => setSelectIndex(index)}>
                 <img src={img.src} alt={img.alt} />
             </li>)}
             )}

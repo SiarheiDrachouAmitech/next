@@ -1,6 +1,7 @@
 import Link from "../../node_modules/next/link";
 import Person from "../../assets/svg/Person";
 import { TeamModel } from "../../models/models";
+import classes from './Team.module.css';
 
 export default function Team(): JSX.Element {
     const teams: TeamModel[] = [
@@ -70,21 +71,21 @@ export default function Team(): JSX.Element {
     ];
 
     return (
-    <section className="team">
-        <h2 className="team__heading">
+    <section className={classes.team}>
+        <h2 className={classes.teamHeading}>
             Наша команда
         </h2>
 
-        <ul className="team-list">
+        <ul className={classes.teamList}>
             {teams.map((team) => {
                 return (
-                    <li className="team-list__item team-list__item" key={team.name}>
+                    <li className={`${classes.teamListItem} ${classes.teamListItem}`} key={team.name}>
                         <Person person={team.person} />
-                        <p className="team-list__item__heading">{team.name}</p>
+                        <p className={classes.teamListItemHeading}>{team.name}</p>
 
-                        {team.tel && <Link className="team-list__item__link" href={'tel:' + team.tel}>{team.tel}</Link>}
+                        {team.tel && <Link className={classes.teamListItemLink} href={'tel:' + team.tel}>{team.tel}</Link>}
                         
-                        <p className="team-list__item__text">{team.position}</p>
+                        <p className={classes.teamListItemText}>{team.position}</p>
                     </li>
                 )
             })}

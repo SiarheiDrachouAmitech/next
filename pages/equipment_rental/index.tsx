@@ -6,6 +6,9 @@ import Head from "../../node_modules/next/dist/shared/lib/head";
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Navigation from '../../components/Navigation/Navigation';
+import useIsMobile from "../../hooks/useIsMobile";
+
+import classes from './EquipmentRentalPage.module.css';
 
 export default function EquipmentRental(): JSX.Element {
   const categoryArray = [
@@ -190,15 +193,8 @@ export default function EquipmentRental(): JSX.Element {
     },
     [cardArray]
   );
-  let [isMobile, setIsMobile] = useState(false);
-
-  const getIsMobile = (value: boolean) => {
-      setIsMobile(value);
-  }
-
-  const onCloseMobileMenu = useCallback(() => {
-    setIsMobile(false);
-}, [setIsMobile]);
+  
+  const { isMobile, getIsMobile, onCloseMobileMenu } = useIsMobile();
 
   return (
     <>
@@ -213,20 +209,20 @@ export default function EquipmentRental(): JSX.Element {
   <Navigation isMobile={isMobile} onClose={onCloseMobileMenu} />
       {isOpenRequestModal && <RequestModal onClose={getIsOpenRequestModal} />}
       <main className="main">
-        <section className="rent">
-          <ul className="rent-category-list">
+        <section className={classes.rent}>
+          <ul className={classes.rentCategoryList}>
             {categoryArray.map((category) => {
               return (
                 <li
                   v-for="category in categoryArray"
                   key={category}
-                  className="rent-category-list__item"
+                  className={classes.rentCategoryListItem}
                 >
                   <button
                     className={
                       selectedType === category
-                        ? "rent-category-list__item__button rent-category-list__item__button--active"
-                        : "rent-category-list__item__button"
+                        ? `${classes.rentCategoryListItemButton} ${classes.rentCategoryListItemButtonActive}`
+                        : classes.rentCategoryListItemButton
                     }
                     onClick={() => filterCategory(category)}
                   >
@@ -237,7 +233,7 @@ export default function EquipmentRental(): JSX.Element {
             })}
           </ul>
 
-          <ul className="rent-card-list">
+          <ul className={classes.rentCardList}>
             {currentCardArray.map((card) => {
               return (
                 <RentCard

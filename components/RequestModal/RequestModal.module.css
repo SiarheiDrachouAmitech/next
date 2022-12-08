@@ -1,0 +1,87 @@
+.requestModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+
+    
+}
+
+.requestModalContainer {
+    position: relative;
+    max-width: 754px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 40px 88px;
+    background-color: #fff;
+
+    
+}
+
+@media(max-width: 768px) {
+    .requestModalContainer {
+    padding: 20px;
+    }
+}
+
+.requestModalContainerHeading {
+    font-size: 30px;
+    line-height: 43px;
+}
+
+.requestModalContainerText {
+    font-size: 22px;
+    line-height: 31px;
+    margin: 40px 0;
+
+    
+}
+
+.requestModalContainerText a {
+    color: black;
+    font-weight: 600;
+}
+
+.requestModalContainerText .span {
+    margin: 0 0 30px;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.requestModalContainerTextButton {
+    color: white;
+    font-size: 16px;
+    line-height: 23px;
+    padding: 10px 50px;
+    display: flex;
+    align-items: center;
+    margin: 15px auto;
+    max-width: 312px;
+
+    
+}
+
+.requestModalContainerText svg {
+    margin-right: 15px;
+}
+
+.requestModalContainerText .phone {
+    background: linear-gradient(180deg, #9E9999 0%, #6A6969 100%);
+}
+.requestModalContainerText .watsapp {
+    background: linear-gradient(180deg, #49C858 0%, #21B032 100%);
+}
+.requestModalContainerText .viber {
+    background: linear-gradient(180deg, #684EB2 0%, #533F8B 100%);
+}
+.requestModalContainerText .telegramm {
+    background: linear-gradient(180deg, #2AABEE 0%, #229ED9 100%);
+}

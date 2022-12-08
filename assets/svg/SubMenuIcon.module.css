@@ -1,0 +1,10 @@
+.submenuIconPath {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    stroke: black;
+}
+
+.submenuIconSvg {
+    transition: 0.5s linear;
+}

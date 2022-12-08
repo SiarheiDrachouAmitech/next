@@ -1,0 +1,9 @@
+.emailSvg {
+    width: 60px;
+    height: 60px;
+}
+
+.emailSvg path {
+    width: 100%;
+    height: 100%;
+}

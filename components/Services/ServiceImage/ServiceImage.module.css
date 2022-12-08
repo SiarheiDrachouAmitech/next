@@ -1,0 +1,20 @@
+.serviceImage {
+  background-color: #ffcb00;
+  border-radius: 50%;
+  width: 78px;
+  height: 78px;
+  margin: 0 auto;
+}
+
+.serviceImage svg {
+  margin: 13px 12px;
+}
+
+.servicesListItem:hover .serviceImage {
+  background-color: #000000;
+}
+
+.servicesListItem:hover .serviceImage svg,
+.servicesListItem:hover .serviceImage path {
+  fill: #ffcb00;
+}

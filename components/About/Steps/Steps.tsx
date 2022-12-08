@@ -1,18 +1,19 @@
 import Number1 from "../../../assets/svg/Number1";
 import Number2 from "../../../assets/svg/Number2";
 import Number3 from "../../../assets/svg/Number3";
+import classes from './Steps.module.css';
 
 export default function Steps(): JSX.Element {
 
     return (
-        <ul className="steps-list">
-        <li className="steps-list__item">
+        <ul className={classes.stepsList}>
+        <li className={classes.stepsListItem}>
             <Number1 />
 
             <div>
-                <h3 className="steps-list__item__heading">Профессиональное оборудование</h3>
+                <h3 className={classes.stepsListItemHeading}>Профессиональное оборудование</h3>
 
-                <p className="steps-list__item__text">
+                <p className={classes.stepsListItemText}>
                     В работе используем
                     <br />
                     собственные механизмы
@@ -28,25 +29,25 @@ export default function Steps(): JSX.Element {
                 </p>
             </div>
         </li>
-        <li className="steps-list__item">
+        <li className={classes.stepsListItem}>
             <Number2 />
 
             <div>
-                <h3 className="steps-list__item__heading">Опытные мастера</h3>
+                <h3 className={classes.stepsListItemHeading}>Опытные мастера</h3>
 
-                <p className="steps-list__item__text">
+                <p className={classes.stepsListItemText}>
                     Аттестованные специалисты с
                     опытом работы от 5 лет
                 </p>
             </div>
         </li>
-        <li className="steps-list__item">
+        <li className={classes.stepsListItem}>
             <Number3 />
 
             <div>
-                <h3 className="steps-list__item__heading">О компании в цифрах</h3>
+                <h3 className={classes.stepsListItemHeading}>О компании в цифрах</h3>
 
-                <p className="steps-list__item__text">
+                <p className={classes.stepsListItemText}>
                     3 года на рынке
                     Более 45 выполненных объектов
                     56 сертификатов

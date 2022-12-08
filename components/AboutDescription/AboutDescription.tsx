@@ -1,6 +1,6 @@
-
 import AboutTeams from './AboutTeams';
 import { AboutDescriptionModel } from '../../models/models';
+import classes from './AboutDescription.module.css';
 
 export default function AboutDescription(props: any): JSX.Element {
     const lists: AboutDescriptionModel[] = [
@@ -139,8 +139,8 @@ export default function AboutDescription(props: any): JSX.Element {
     ];
 
     return (
-        <article className="about-us">
-        <h3 className="about-us__heading">
+        <article className={classes.aboutUs}>
+        <h3 className={classes.aboutUsHeading}>
             Форма собственности – частная, действуем на основании Устава
         </h3>
 

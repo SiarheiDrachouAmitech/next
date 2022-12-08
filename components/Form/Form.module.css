@@ -1,0 +1,94 @@
+.form {
+  max-width: 486px;
+  display: grid;
+  grid-gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .form {
+    max-width: none;
+  }
+}
+
+.formTimerangeContainer {
+  margin-top: 5px;
+  padding: 17px 30px;
+  grid-template-columns: repeat(2, 100px);
+  grid-gap: 110px;
+  background-color: #fff;
+}
+
+.form .error {
+  border: 3px solid #fb0000;
+}
+
+.form .errorMessage {
+  color: #fb0000;
+  text-align: right;
+}
+
+.form .successMessage {
+  color: green;
+}
+
+.form fieldset {
+  border: 3px solid #ffcb00;
+}
+
+@media (max-width: 500px) {
+  .form fieldset {
+    max-width: 300px;
+  }
+}
+
+.form fieldset .divSelect {
+  display: grid;
+  grid-template-columns: auto 1fr !important;
+  grid-gap: 30px !important;
+}
+
+.form legend {
+  color: #ffcb00;
+  font-size: 22px;
+  line-height: 26px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 500px) {
+  .form legend {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+.form button {
+  background: linear-gradient(100.01deg, #ffcb00 41.72%, #d9a900 104.17%);
+  font-size: 18px;
+  line-height: 21px;
+  padding: 21px 50px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+@media (max-width: 500px) {
+  .form button {
+    max-width: 300px;
+  }
+}
+
+.form textarea {
+  position: relative;
+  bottom: -5px;
+}
+
+.form select {
+  min-width: 100px;
+  max-width: 100px;
+}
+
+@media (max-width: 500px) {
+  .form select {
+    min-width: 50px;
+    max-width: 50px;
+  }
+}

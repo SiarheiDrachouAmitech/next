@@ -1,9 +1,12 @@
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { FacilityModel } from "../../models/models";
 import Head from "../../node_modules/next/dist/shared/lib/head";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Navigation from "../../components/Navigation/Navigation";
+import useIsMobile from "../../hooks/useIsMobile";
+
+import classes from './ObjectsPage.module.css';
 
 export default function Objects(): JSX.Element {
   const facilities: FacilityModel[] = useMemo(() => {
@@ -108,15 +111,7 @@ export default function Objects(): JSX.Element {
     ];
   }, []);
 
-  let [isMobile, setIsMobile] = useState(false);
-
-  const getIsMobile = (value: boolean) => {
-    setIsMobile(value);
-  };
-
-  const onCloseMobileMenu = useCallback(() => {
-    setIsMobile(false);
-  }, [setIsMobile]);
+  const { isMobile, getIsMobile, onCloseMobileMenu } = useIsMobile();
 
   return (
     <>
@@ -130,11 +125,11 @@ export default function Objects(): JSX.Element {
 
       <Navigation isMobile={isMobile} onClose={onCloseMobileMenu} />
       <main className="main">
-        <section className="objects">
-          <ul className="objects-list">
+        <section className={classes.objects}>
+          <ul className={classes.objectsList}>
             {facilities.map((facility) => {
               return (
-                <li className="objects-list__item" key={facility.heading}>
+                <li className={classes.objectsListItem} key={facility.heading}>
                   <picture>
                     {facility.WEBPsrc && (
                       <source srcSet={facility.WEBPsrc} type="image/webp" />
@@ -143,7 +138,7 @@ export default function Objects(): JSX.Element {
                   </picture>
 
                   <a
-                    className="objects-list__item__link"
+                    className={classes.objectsListItemLink}
                     href={facility.linkName}
                   >
                     {facility.heading}

@@ -1,14 +1,16 @@
+import classes from './Preview.module.css';
+
 export default function Preview(): JSX.Element {
 
     return (
-        <section className="preview">
-        <div className="preview-container">
-            <h1 className="preview__heading">
+        <section className={classes.preview}>
+        <div className={classes.previewContainer}>
+            <h1 className={classes.previewHeading}>
                 Строительная компания
                 <span>ЯраМарк</span>
             </h1>
 
-            <p className="preview__text">
+            <p className={classes.previewText}>
                 <span>Качество, Надежность и Доверие</span>
                 <br />
                 — это основные критерии, на которых

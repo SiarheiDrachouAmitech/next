@@ -1,0 +1,100 @@
+.contacts {
+  position: relative;
+  min-height: 100%;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto 1fr;
+}
+
+.contacts * {
+  width: 100%;
+}
+
+.contactsDescrition {
+  width: 100%;
+  padding: 70px;
+  background-color: black;
+  color: white;
+}
+
+.contactsDescritionHeading {
+  font-size: 40px;
+  line-height: 56px;
+}
+
+.contactsDescritionList {
+  display: grid;
+  grid-gap: 50px;
+  margin-top: 85px;
+}
+
+.contactsDescritionListItem {
+  display: flex;
+  align-items: center;
+  max-width: 425px;
+  font-size: 22px;
+  line-height: 31px;
+  color: white;
+}
+
+.contactsDescritionListItem svg {
+  margin-right: 68px;
+  height: 60px;
+  width: 60px;
+
+  @media (max-width: 1024px) {
+    margin-right: 30px;
+  }
+}
+
+.contactsDescritionListItem a {
+  color: white;
+}
+
+.contactsDescritionList .telephones {
+  display: grid;
+  grid-template-areas:
+    "svg mobile"
+    "svg tel";
+  grid-template-columns: auto 1fr;
+}
+
+.contactsDescritionList .telephones .mobile {
+  grid-area: mobile;
+  text-align: left;
+}
+
+.contactsDescritionList .telephones .tel {
+  grid-area: tel;
+  text-align: left;
+}
+
+.contactsDescritionList .telephones svg {
+  grid-area: svg;
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 968px) {
+  .contactsDescrition {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contactsDescrition {
+    padding: 30px;
+  }
+}
+
+.contactsMap iframe {
+  min-height: 100%;
+
+  @media (max-width: 500px) {
+    min-height: 1200px;
+  }
+}
+
+.footerBg {
+  margin-top: 0 !important;
+}

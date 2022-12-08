@@ -1,43 +1,36 @@
-import Head from '../node_modules/next/head';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import Navigation from '../components/Navigation/Navigation';
-import PreviewModal from '../components/PreviewModal/PreviewModal';
-import Preview from '../components/Preview/Preview';
-import About from '../components/About/About';
-import Services from '../components/Services/Services';
-import CompanyObjects from '../components/CompanyObjects/CompanyObjects';
-import Reviews from '../components/Reviews/Reviews';
-import { useCallback, useState } from 'react';
-import { ObjectCarouselModel } from '../models/models';
+import Head from "../node_modules/next/head";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import Navigation from "../components/Navigation/Navigation";
+import PreviewModal from "../components/PreviewModal/PreviewModal";
+import Preview from "../components/Preview/Preview";
+import About from "../components/About/About";
+import Services from "../components/Services/Services";
+import CompanyObjects from "../components/CompanyObjects/CompanyObjects";
+import Reviews from "../components/Reviews/Reviews";
+import { useCallback, useState } from "react";
+import { ObjectCarouselModel } from "../models/models";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Home(): JSX.Element {
   let [isOpenPreview, setIsOpenPreview] = useState(false);
-  let [selectSrc, setSelectSrc] = useState('');
-  let [selectWEBPSrc, setSelectWEBPSrc] = useState('');
-  let [selectAlt, setSelectAlt] = useState('');
-  let [isMobile, setIsMobile] = useState(false);
-
-  const getIsMobile = (value: boolean) => {
-      setIsMobile(value);
-  }
-
-  const onCloseMobileMenu = useCallback(() => {
-    setIsMobile(false);
-}, [setIsMobile]);
+  let [selectSrc, setSelectSrc] = useState("");
+  let [selectWEBPSrc, setSelectWEBPSrc] = useState("");
+  let [selectAlt, setSelectAlt] = useState("");
+  const { isMobile, getIsMobile, onCloseMobileMenu } = useIsMobile();
 
   const onClose = useCallback(() => {
     setIsOpenPreview(false);
-    setSelectSrc('');
-    setSelectWEBPSrc('');
-    setSelectAlt('');
-  }, [])
+    setSelectSrc("");
+    setSelectWEBPSrc("");
+    setSelectAlt("");
+  }, []);
 
   const openPreview = useCallback((preview: ObjectCarouselModel) => {
     setSelectSrc(preview.src);
-    setSelectWEBPSrc(preview.WEBPsrc || '');
+    setSelectWEBPSrc(preview.WEBPsrc || "");
     setSelectAlt(preview.alt);
-    setIsOpenPreview(true)
+    setIsOpenPreview(true);
   }, []);
 
   return (
@@ -50,23 +43,30 @@ export default function Home(): JSX.Element {
 
       <Header isMobile={isMobile} getIsMobile={getIsMobile} />
 
-        <Navigation isMobile={isMobile} onClose={onCloseMobileMenu} />
+      <Navigation isMobile={isMobile} onClose={onCloseMobileMenu} />
 
-        {isOpenPreview && <PreviewModal onClose={onClose} previewSrc={selectSrc} previewWEBPSrc={selectWEBPSrc} previewAlt={selectAlt} />}
+      {isOpenPreview && (
+        <PreviewModal
+          onClose={onClose}
+          previewSrc={selectSrc}
+          previewWEBPSrc={selectWEBPSrc}
+          previewAlt={selectAlt}
+        />
+      )}
 
-        <main className="main">
-          <Preview />
+      <main className="main">
+        <Preview />
 
-          <About />
+        <About />
 
-          <Services />
+        <Services />
 
-          <CompanyObjects />
+        <CompanyObjects />
 
-          <Reviews openPreview={openPreview} />
-        </main>
+        <Reviews openPreview={openPreview} />
+      </main>
 
       <Footer />
     </>
-  )
-};
+  );
+}

@@ -1,48 +1,49 @@
 import { TechnicalCardModel } from "../../models/models";
+import classes from './RentCard.module.css';
 
 export default function RentCard(props: {getIsOpenRequest: (value: boolean) => void, card: TechnicalCardModel}): JSX.Element {
    const { card, getIsOpenRequest } = props;
 
    return (
-    <li className="rent-card-list__item">
+    <li className={classes.rentCardListItem}>
         <figure>
             <img src={card.src} alt={card.alt} />
 
-            <figcaption v-text="card.name"></figcaption>
+            <figcaption>{card.name}</figcaption>
         </figure>
 
-        <div className="card-container">
-            {card.type && <p className="card-type">{card.type}</p>}
+        <div className={classes.cardContainer}>
+            {card.type && <p className={classes.cardType}>{card.type}</p>}
 
-            {card.ladle && <p className="card-description">
+            {card.ladle && <p className={classes.cardDescription}>
                 <span>Ковш</span>
                 <span>{card.ladle}</span>
             </p>}
 
-            {card.weight && <p className="card-description">
+            {card.weight && <p className={classes.cardDescription}>
                 <span>Масса</span>
                 <span>{card.weight}</span>
             </p>}
 
-            {card.swampCaterpillar && <p className="card-description">
+            {card.swampCaterpillar && <p className={classes.cardDescription}>
                 <span>Болотная гусеница</span>
                 <span>{card.swampCaterpillar}</span>
             </p>}
 
-            {card.trackWidth && <p className="card-description">
+            {card.trackWidth && <p className={classes.cardDescription}>
                 <span>Ширина трака</span>
                 <span>{card.trackWidth}</span>
             </p>}
 
-            {card.bladeWidth && <p className="card-description">
+            {card.bladeWidth && <p className={classes.cardDescription}>
                 <span>Ширина отвала</span>
                 <span>{card.bladeWidth}</span>
             </p>}
-            {card.diggingDepth && <p className="card-description">
+            {card.diggingDepth && <p className={classes.cardDescription}>
                 <span>Глубина копания</span>
                 <span>{card.diggingDepth}</span>
             </p>}
-            {card.count && <p className="card-description">
+            {card.count && <p className={classes.cardDescription}>
                 <span>Количество</span>
                 <span>{card.count}</span>
             </p>}

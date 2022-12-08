@@ -1,0 +1,121 @@
+.reviews {
+  max-width: 1280px;
+  margin: 130px auto 0;
+}
+
+@media (max-width: 1340px) {
+  .reviews {
+    margin: 130px 50px 0;
+  }
+}
+
+@media (max-width: 969px) {
+  .reviews {
+    margin: 65px 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews {
+    margin: 65px 30px;
+  }
+}
+
+.reviewsHeading {
+  margin-bottom: 70px;
+}
+
+@media (max-width: 640px) {
+  .reviewsHeading {
+    margin-bottom: 40px;
+  }
+}
+
+.reviewsList {
+  display: grid;
+  grid-template-columns: minmax(auto, 384px) minmax(auto, 384px) minmax(
+      auto,
+      384px
+    );
+  grid-gap: 24px;
+}
+
+.reviewsListItem {
+  position: relative;
+  cursor: pointer;
+}
+
+.reviewsListItem img {
+  max-width: 384px;
+}
+
+@media (max-width: 640px) {
+  .reviewsListItem img {
+    max-width: 100%;
+  }
+}
+
+.reviewsListItem::before {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 203, 0, 0.7),
+    rgba(255, 203, 0, 0.7)
+  );
+  display: none;
+}
+
+.reviewsListItem::after {
+  position: absolute;
+  content: "Просмотреть";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  line-height: 45px;
+  display: none;
+}
+
+.reviewsListItem:hover::before,
+.reviewsListItem:hover::after {
+  display: flex;
+}
+
+@media (max-width: 1280px) {
+  .reviewsList {
+    grid-template-columns: minmax(auto, 384px) minmax(auto, 384px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 864px) {
+  .reviewsList {
+    grid-template-columns: 384px;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviewsList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reviewsLink {
+  margin: 60px auto 0;
+  padding: 14px 100px;
+  display: block;
+  width: 350px;
+}
+
+@media (max-width: 500px) {
+  .reviewsLink {
+    padding: 14px 75px;
+    width: 300px;
+  }
+}

@@ -1,5 +1,6 @@
 import { ObjectCarouselModel } from "../../models/models";
 import Link from "../../node_modules/next/link"
+import classes from './Reviews.module.css';
 
 export default function Reviews(props: {openPreview: (preview: ObjectCarouselModel) => void}): JSX.Element {
     const { openPreview } = props;
@@ -27,14 +28,14 @@ export default function Reviews(props: {openPreview: (preview: ObjectCarouselMod
     ];
     
     return (
-    <section className="reviews">
-        <h2 className="reviews__heading">
+    <section className={classes.reviews}>
+        <h2 className={classes.reviewsHeading}>
             Отзывы
         </h2>
 
-        <ul className="reviews-list">
+        <ul className={classes.reviewsList}>
             {reviews.map((review) => {
-            return (<li className="reviews-list__item" key={review.src} onClick={() => {openPreview(review)}}>
+            return (<li className={classes.reviewsListItem} key={review.src} onClick={() => {openPreview(review)}}>
                 <picture>
                     {review.WEBPsrc && <source
                         srcSet={review.WEBPsrc}
@@ -44,7 +45,8 @@ export default function Reviews(props: {openPreview: (preview: ObjectCarouselMod
                 </picture>
             </li>)})}
         </ul>
-
-        <a className="reviews__link button--secondary" href="/technical_competence">Просмотреть все</a>
+        <Link href="/technical_competence">
+        <a className={`${classes.reviewsLink} button--secondary`}>Просмотреть все</a>
+        </Link>
     </section>
     )}

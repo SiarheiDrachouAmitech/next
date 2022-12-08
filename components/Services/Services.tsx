@@ -1,5 +1,6 @@
 import { ServiceModel } from '../../models/models';
 import ServiceImage from './ServiceImage/ServiceImage';
+import classes from './Services.module.css';
 
 export default function Services(): JSX.Element {
     const services: ServiceModel[] =  [
@@ -78,14 +79,14 @@ export default function Services(): JSX.Element {
     ]
 
     return (
-    <section className="services">
-        <h2 className="services__heading">
+    <section className={classes.services}>
+        <h2 className={classes.servicesHeading}>
             Наши услуги
         </h2>
 
-        <ul className="services-list">
+        <ul className={classes.servicesList}>
             {services.map((service) => {
-            return (<li className="services-list-item" key={service.heading}>
+            return (<li className={classes.servicesListItem} key={service.heading}>
                 <ServiceImage itemId={service.id} />
 
                 <figcaption>{service.heading}</figcaption>

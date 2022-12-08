@@ -1,36 +1,40 @@
+import { useState } from 'react';
+import classes from './Form.module.css';
+
 export default function Form(props: any): JSX.Element {
-    const isPhoneNumber = false,
-    isBlurPhoneNumber = false,
-    isName = false,
-    isBlurName = false,
-    isSuccess: 'loading' | 'success' | 'error' = 'loading',
-    isDisabled = false;
+    let [isPhoneNumber, setIsPhoneNumber] = useState(false);
+    let [isBlurPhoneNumber, setIsBlurPhoneNumber] = useState(false);
+    let [isName, setIsName] = useState(false);
+    let [isBlurName, setIsBlurName] = useState(false);
+    let [isSuccess, setIsSuccess] = useState('loading');
+    let [isDisabled, setIsDisabled] = useState(false);
+
 
     return (
-        <form className="form">
+        <form className={classes.form}>
         <fieldset >
             <legend>Номер телефона</legend>
         </fieldset>
 
-        {!isPhoneNumber && !isBlurPhoneNumber && <p className="error-message">Некорректный мобильный номер!</p>}
+        {!isPhoneNumber && !isBlurPhoneNumber && <p className={classes.errorMessage}>Некорректный мобильный номер!</p>}
 
         <fieldset >
             <legend>Имя</legend>
             <input placeholder="Введите имя" type="text" />
         </fieldset>
 
-        {!isName && !isBlurName && <p className="error-message">Введите имя!</p>}
+        {!isName && !isBlurName && <p className={classes.errorMessage}>Введите имя!</p>}
 
         <fieldset>
             <legend>Коментарий</legend>
-            <textarea cols="30" rows="5" placeholder="Напишите тут"></textarea>
+            <textarea placeholder="Напишите тут"></textarea>
         </fieldset>
 
-        <fieldset className="form-timerange">
+        <fieldset className={classes.formTimerange}>
             <legend>Желаемое время для звонка</legend>
 
-            <div className="form-timerange-container div-select">
-                <div className="div-select">
+            <div className={`${classes.formTimerangeContainer} ${classes.divSelect}`}>
+                <div className={classes.divSelect}>
                     <span>c</span>
                     <select defaultValue={'8:00'}>
                         <option value="8:00" >8:00</option>
@@ -46,7 +50,7 @@ export default function Form(props: any): JSX.Element {
                     </select>
                 </div>
 
-                <div className="div-select">
+                <div className={classes.divSelect}>
                     <span>до</span>
                     <select defaultValue={'9:00'}>
                         <option value="9:00" >9:00</option>
@@ -64,11 +68,11 @@ export default function Form(props: any): JSX.Element {
             </div>
         </fieldset>
 
-        {isSuccess === 'success' && <p className="success-message">
+        {isSuccess === 'success' && <p className={classes.successMessage}>
             Заявка успешно отправлена!
         </p>}
 
-        {isSuccess === 'error' && <p className="success-message">
+        {isSuccess === 'error' && <p className={classes.successMessage}>
             Ошибка! Попробуйте ещё раз.
         </p>}
 
